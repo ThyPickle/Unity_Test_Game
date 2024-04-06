@@ -37,8 +37,8 @@ public class Random_Genarator : MonoBehaviour
         if (Spawn_Door.door_decision == true)
         {
             //-------Operation left side--------
-            OP_door_left = Random.Range(0, 3);
-            //OP_door_left = 0;
+            //OP_door_left = Random.Range(0, 3);
+            OP_door_left = 3;
             //Debug.Log(OP_door_left);
             ll_plus = Random.Range(1, 21);
             ll_minus = Random.Range(1, 21);
@@ -49,7 +49,7 @@ public class Random_Genarator : MonoBehaviour
             ll_power = Random.Range(1, 3);
             //-------Operation right side--------
             OP_door_right = Random.Range(0, 3);
-            //OP_door_right = 2;
+            OP_door_right = 0;
             //Debug.Log(OP_door_right);
             lr_plus = Random.Range(1, 21);
             lr_minus = Random.Range(1, 21);

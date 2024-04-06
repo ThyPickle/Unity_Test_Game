@@ -31,7 +31,12 @@ public class Display_Right : MonoBehaviour
         Number_left.color = Color.black;
         Number_left.fontSize = 25;
     }
-
+    public void number_Left_div()                               //Text stats of the left text 
+    {
+        Number_left.text = (":" + Math.Troop_number_lf.ToString());
+        Number_left.color = Color.black;
+        Number_left.fontSize = 25;
+    }
     public void number_Right_plus()                             //Text stats of the right text
     {
         Number_right.text = ("+" + Math.Troop_number_rg.ToString());
@@ -52,6 +57,12 @@ public class Display_Right : MonoBehaviour
         Number_right.color = Color.black;
         Number_right.fontSize = 25;
     }
+    public void number_Right_div()                             //Text stats of the right text
+    {
+        Number_right.text = (":" + Math.Troop_number_rg.ToString());
+        Number_right.color = Color.black;
+        Number_right.fontSize = 25;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +78,9 @@ public class Display_Right : MonoBehaviour
             case 2:
                 number_Left_multi();
                 break;
+            case 3:
+                number_Left_div();
+                break;
 
        }
        switch (Random_Genarator.OP_door_right)
@@ -80,7 +94,9 @@ public class Display_Right : MonoBehaviour
             case 2:
                 number_Right_multi();
                 break;
-
+            case 3:
+                number_Right_div();
+            break;
        }
     }
 
