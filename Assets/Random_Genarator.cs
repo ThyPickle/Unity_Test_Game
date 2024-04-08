@@ -48,7 +48,7 @@ public class Random_Genarator : MonoBehaviour
             ll_root = 1;
             ll_power = Random.Range(1, 3);
             //-------Operation right side--------
-            OP_door_right = Random.Range(0, 3);
+            //OP_door_right = Random.Range(0, 3);
             OP_door_right = 0;
             //Debug.Log(OP_door_right);
             lr_plus = Random.Range(1, 21);
