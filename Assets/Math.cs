@@ -11,14 +11,13 @@ public class Math : MonoBehaviour
     public static int Troop_number_rg = 0;              //Number of troops right
     public GameObject player;                           //The clone
     private int timer_r = 0;                            //Timer used for deleting troops
-    private int timer_l = 0;                            //Timer used for deleting troops
-    private float div_number_left_test = 0;                       //Divider Number left
-    private float div_number_left = 0;
-    private float div_number_right = 0;                       //Divider Number right
+    private int timer_l = 0;                            //Timer used for deleting troops              
+    private float div_number_left = 0;                  //Divider Number left
+    private float div_number_right = 0;                     //Divider Number right
 
     void Start()
     {
-
+        //uaiksdbliau
     }
 
     // Update is called once per frame
@@ -68,10 +67,21 @@ public class Math : MonoBehaviour
                     }
                 break;
                 case 3:                         //  :
-                    div_number_left_test = Logic_Manager.Troop_number % Random_Genarator.ll_divid;
+                    div_number_left = Logic_Manager.Troop_number % Random_Genarator.ll_divid;
                     if(div_number_left != 0)
                     {
-                        
+                        Troop_number_lf = Random_Genarator.ll_divid;
+                        if (timer_l >= Logic_Manager.Troop_number - ((Logic_Manager.Troop_number - (Logic_Manager.Troop_number % Random_Genarator.ll_divid)) / Random_Genarator.ll_divid))
+                        {
+                            timer_l = 0;
+                            Logic_Manager.Troop_number = Logic_Manager.Troop_number / Random_Genarator.ll_divid;
+                            Hitleft = false;
+                        }
+                        if (Hitleft == true)
+                        {
+                            Destroy(GameObject.FindWithTag("Meniec"));                             //Delete troops according to the negativ_random number (negativ_random gets set in Random_Generator script)
+                            timer_l++;
+                        }
                     }
                     else
                     {
@@ -147,18 +157,29 @@ public class Math : MonoBehaviour
                 div_number_right = Logic_Manager.Troop_number % Random_Genarator.lr_divid;
                 if (div_number_right != 0)
                 {
-
+                    Troop_number_rg = Random_Genarator.lr_divid;
+                    if (timer_r >= Logic_Manager.Troop_number - ((Logic_Manager.Troop_number - (Logic_Manager.Troop_number % Random_Genarator.lr_divid)) / Random_Genarator.lr_divid))
+                    {
+                        timer_r = 0;
+                        Logic_Manager.Troop_number = Logic_Manager.Troop_number / Random_Genarator.lr_divid;
+                        Hitright = false;
+                    }
+                    if (Hitright == true)
+                    {
+                        Destroy(GameObject.FindWithTag("Meniec"));                             //Delete troops according to the negativ_random number (negativ_random gets set in Random_Generator script)
+                        timer_r++;
+                    }
                 }
                 else
                 {
                     Troop_number_rg = Random_Genarator.lr_divid;
-                    if (timer_r >= (Logic_Manager.Troop_number / Random_Genarator.lr_divid))
+                    if (timer_r >= Logic_Manager.Troop_number - (Logic_Manager.Troop_number / Random_Genarator.lr_divid))
                     {
                         timer_r = 0;
                         Logic_Manager.Troop_number = Logic_Manager.Troop_number / Random_Genarator.lr_divid;
-                        Hitleft = false;
+                        Hitright = false;
                     }
-                    if (Hitleft == true)
+                    if (Hitright == true)
                     {
                         Destroy(GameObject.FindWithTag("Meniec"));                             //Delete troops according to the negativ_random number (negativ_random gets set in Random_Generator script)
                         timer_r++;
