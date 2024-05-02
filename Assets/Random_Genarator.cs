@@ -10,7 +10,6 @@ public class Random_Genarator : MonoBehaviour
     public static int ll_minus;
     public static int ll_multi;
     public static int ll_divid;
-    public static int ll_fract;
     public static int ll_root;
     public static int ll_power;
 
@@ -20,7 +19,6 @@ public class Random_Genarator : MonoBehaviour
     public static int lr_minus;
     public static int lr_multi;
     public static int lr_divid;
-    public static int lr_fract;
     public static int lr_root;
     public static int lr_power;
 
@@ -44,7 +42,6 @@ public class Random_Genarator : MonoBehaviour
             ll_minus = Random.Range(1, 21);
             ll_multi = Random.Range(2, 7);
             ll_divid = Random.Range(2, 10);
-            ll_fract = Random.Range(1, 10);
             ll_root = 1;
             ll_power = Random.Range(1, 3);
             //-------Operation right side--------
@@ -55,7 +52,6 @@ public class Random_Genarator : MonoBehaviour
             lr_minus = Random.Range(1, 21);
             lr_multi = Random.Range(2, 7);
             lr_divid = Random.Range(2, 10);
-            lr_fract = Random.Range(1, 10);
             lr_root = 1;
             lr_power = Random.Range(1, 3);
         }
