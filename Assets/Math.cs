@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Math : MonoBehaviour
 {
@@ -59,15 +60,13 @@ public class Math : MonoBehaviour
                 }
                 break;
             case 2:                         //  *
+                Troop_number_lf = Random_Genarator.ll_multi;
                 if (Hitleft == true)
                 {
-                    for (int j = 2; j <= Random_Genarator.ll_multi; j++)
+                    for (int i = (Logic_Manager.Troop_number + 1); i <= (Logic_Manager.Troop_number * Random_Genarator.ll_multi); i++)                               
                     {
-                        for (int i = 1; i <= Logic_Manager.Troop_number; i++)                               
-                        {
-                            Instantiate(player, transform.position, transform.rotation);
-                        }
-                    }
+                        Instantiate(player, transform.position, transform.rotation);
+                    }   
                     Logic_Manager.Troop_number = Logic_Manager.Troop_number * Random_Genarator.ll_multi;
                     Hitleft = false;
                 }
@@ -87,10 +86,29 @@ public class Math : MonoBehaviour
                 }
                 break;
             case 4:                         //  root
-
+                if(timer_l >= Logic_Manager.Troop_number - Convert.ToInt32(Mathf.Sqrt(Logic_Manager.Troop_number)))
+                {
+                    timer_l = 0;
+                    Logic_Manager.Troop_number = Convert.ToInt32(Mathf.Sqrt(Logic_Manager.Troop_number));
+                    Hitleft = false;
+                }
+                if(Hitleft == true)
+                {
+                    Destroy(GameObject.FindWithTag("Meniec"));
+                    timer_l++;
+                }
                 break;
             case 5:                         //  power
-
+                Troop_number_lf = Logic_Manager.Troop_number;
+                if (Hitleft == true)
+                {
+                    for (int i = 1; i < (Logic_Manager.Troop_number * Logic_Manager.Troop_number); i++)
+                    {
+                        Instantiate(player, transform.position, transform.rotation);
+                    }
+                    Logic_Manager.Troop_number = Logic_Manager.Troop_number * Logic_Manager.Troop_number;
+                    Hitleft = false;
+                }
                 break;
         }
 
@@ -126,14 +144,11 @@ public class Math : MonoBehaviour
                 Troop_number_rg = Random_Genarator.lr_multi;
                 if (Hitright == true)
                 {
-                    for (int j = 2; j <= Random_Genarator.lr_multi; j++)
+                    for (int i = (Logic_Manager.Troop_number + 1); i <= (Logic_Manager.Troop_number * Random_Genarator.ll_multi); i++)
                     {
-                        for (int i = 1; i <= Logic_Manager.Troop_number; i++)
-                        { 
-                            Instantiate(player, transform.position, transform.rotation);
-                        }
+                        Instantiate(player, transform.position, transform.rotation);
                     }
-                    Logic_Manager.Troop_number = Logic_Manager.Troop_number * Random_Genarator.lr_multi;
+                    Logic_Manager.Troop_number = Logic_Manager.Troop_number * Random_Genarator.ll_multi;
                     Hitright = false;
                 }
                 break;
@@ -152,10 +167,29 @@ public class Math : MonoBehaviour
                 }
                 break;
             case 4:                         //  root
-
+                if (timer_r >= Logic_Manager.Troop_number - Convert.ToInt32(Mathf.Sqrt(Logic_Manager.Troop_number)))
+                {
+                    timer_r = 0;
+                    Logic_Manager.Troop_number = Convert.ToInt32(Mathf.Sqrt(Logic_Manager.Troop_number));
+                    Hitright = false;
+                }
+                if (Hitright == true)
+                {
+                    Destroy(GameObject.FindWithTag("Meniec"));
+                    timer_r++;
+                }
                 break;
             case 5:                         //  power
-
+                Troop_number_rg = Logic_Manager.Troop_number;
+                if (Hitright == true)
+                {
+                    for (int i = 1; i < (Logic_Manager.Troop_number * Logic_Manager.Troop_number); i++)
+                    {
+                        Instantiate(player, transform.position, transform.rotation);
+                    }
+                    Logic_Manager.Troop_number = Logic_Manager.Troop_number * Logic_Manager.Troop_number;
+                    Hitright = false;
+                }
                 break;
         }
     }

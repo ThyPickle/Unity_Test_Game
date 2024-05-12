@@ -685,6 +685,8 @@ MonoBehaviour:
   textToDisplay: 
   Number_left: {fileID: 3591050248410477987, guid: 6e5ed218307ae5c44838d138c065728e, type: 3}
   textToDisplay2: 
+  Left_root: {fileID: 0}
+  Right_root: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
